@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #header {
+            background-color: #a52a2a;
+            color: #fff;
+            padding:20px;
+            text-align: center;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        .logo img {
+            width: 100px; /* Adjust the width as needed */
+            height: 100px; /* Maintain aspect ratio */ /* Adjust the margin as needed */
+            margin-left: -59%;
+            margin-top: -80px;
+            box-shadow: None;
+            border: None;
+        }
+        .text {
+            display: inline-block;
+            text-align: center;
+        }
+        input[type="text"]{
+            width: 100%;
+            height: 20%;
+        }
+        input[type="submit"] {
+            background-color: #1ABC9C;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        #footer {
+            background-color: #a52a2a;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            bottom:0;
+            width: 100%;
+            position: fixed;
+        }
+
+        #content {
+            text-align: center;
+            margin: 20px;
+            width: 100%;
+        }
+
+        #studentDetails {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 60%;
+            margin-top: 20px;
+        }
+        p{
+            font-size: large;
+            font-weight: bold;
+            color: #008cba ;
+        }
+        h4{
+            color: #008cba ;
+        }
+        h3{
+            color:#a52a2a;
+            font-size: 25px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="text">
+            <h2>Rajiv Gandhi University of Knowledge Technologies-Srikakulam</h2><br>
+            <h2>Facial Recognition Outpass Management System</h2>
+        </div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+        
+    </div>
+
+    <div id="content">
+        <div id="studentDetails">
+        <center>
+            <h3>Student Details</h3>
+            <img style="border: 1px solid #000;" src="{{ url_for('static', filename='img/S190185/'+details['id'] + '.jpg') }}" alt="{{details['name']}}" width="200px" height="200px">
+
+            <h4>{{details['name']}}  </h4>
+            <p>ID: <span>{{details['id']}} </span></p>
+            <p>Branch: <span>{{details['branch']}} </span></p>
+            <p>Year: <span>{{details['year']}} </span></p>  
+        </center>
+        <div style="margin-left: 25%;font-weight: bold;">
+                     
+            <form action="/detail" method="POST">
+                <div style="display: inline-flex ;">
+                    <p style="margin-top: -3px;">Reason:</p> &nbsp;
+                    <textarea name="reason" placeholder="Enter your Reason for Outpass" cols="30" rows="4"></textarea>
+                </div>
+                <br><br>
+        </div>
+        <input type="hidden" name="id" value="{{details['id']}}">
+        <input type="hidden" name="name" value="{{details['name']}}">
+        <input type="hidden" name="branch" value="{{details['branch']}}">
+        <input type="hidden" name="year" value="{{details['year']}}">
+        
+       <center><input type="submit" value="Confirm Outpass"></center> 
+       </form>
+
+        
+        </div>
+    </div>
+    <br><br>
+    <div id="footer">
+        &copy; 2023 Rajiv Gandhi University of Knowledge Technologies. All rights reserved.
+    </div>
+
+    <script>
+        function confirmOutpass() {
+            alert('Outpass confirmed!');
+        }
+    </script>
+</body>
+</html>

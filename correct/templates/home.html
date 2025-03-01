@@ -1,0 +1,715 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #header {
+            background-color: #a52a2a;
+            color: #fff;
+            padding:20px;
+            text-align: center;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        .logo img {
+            width: 100px; /* Adjust the width as needed */
+            height: 100px; /* Maintain aspect ratio */ /* Adjust the margin as needed */
+            margin-left: -59%;
+            margin-top: -80px;
+            box-shadow: None;
+            border: None;
+        }
+        .text {
+            display: inline-block;
+            text-align: center;
+        }
+        input[type="text"]{
+            width: 100%;
+            height: 20%;
+        }
+        input[type="submit"] {
+            background-color: #1ABC9C;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        #footer {
+            background-color: #a52a2a;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            bottom:0;
+            width: 100%;
+            position: fixed;
+        }
+
+        #content {
+            text-align: center;
+            margin-left: 100px;
+            margin-top: 30px;
+            width: 80%;
+            height: 80%;
+        }
+
+        #studentDetails {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 60%;
+            margin-top: 20px;
+        }
+        p{
+            font-size: large;
+            font-weight: bold;
+            color: #008cba ;
+        }
+        h4{
+            color: #008cba ;
+        }
+        h3{
+            color:#a52a2a;
+            font-size: 25px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="text">
+            <h2>Rajiv Gandhi University of Knowledge Technologies-Srikakulam</h2><br>
+            <h2>Facial Recognition Outpass Management System</h2>
+        </div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+        
+    </div>
+    <div id="content">
+        <div id="studentDetails">
+            <h1 style="color: #008cba;text-align: center;">Outpass Issuing Portal</h1>
+            <br><br>
+            <form action="/caretaker" method="post">
+                <center><input type="submit" value="Warden Office"></center> 
+            </form>
+            <br>
+            <form action="/main-gate" method="post">
+                <center><input type="submit" value="Main Gate"></center> 
+            </form><br><br>
+            <form action="/in-out" method="post">
+                <center><input type="submit" value="In/Out"></center> 
+            </form>
+            </div> 
+            <br><br><br>
+    </div>
+    
+
+    <div id="footer">
+        &copy; 2024 Rajiv Gandhi University of Knowledge Technologies. All rights reserved.
+    </div>
+
+
+    </script>
+</body>
+</html>
+RK16DY28J3Q3HSZWUUZ4BRLB -->
+
+
+<!-- the above code works fine bro -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #header {
+            background-color: #a52a2a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        .logo img {
+            width: 100px; 
+            height: 100px; 
+            margin-left: -59%;
+            margin-top: -80px;
+            box-shadow: None;
+            border: None;
+        }
+        .text {
+            display: inline-block;
+            text-align: center;
+        }
+        input[type="submit"] {
+            background-color: #1ABC9C;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            width: 80%;
+        }
+        #footer {
+            background-color: #a52a2a;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            bottom: 0;
+            width: 100%;
+            position: fixed;
+        }
+        #content {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 100px;
+            width: 80%;
+        }
+        .section {
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 45%;
+        }
+        .section h1 {
+            color: #008cba;
+            text-align: center;
+        }
+        .section p {
+            font-size: large;
+            font-weight: bold;
+            color: #008cba;
+        }
+        .section h4 {
+            color: #008cba;
+        }
+        .section h3 {
+            color: #a52a2a;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="text">
+            <h2>Rajiv Gandhi University of Knowledge Technologies-Srikakulam</h2>
+            <h2>Facial Recognition Outpass Management System</h2>
+        </div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+    </div>
+    <div id="content">
+        <div class="section" id="boysSection">
+            <h1>Boys</h1>
+            <form action="/caretaker" method="post">
+                <input type="submit" value="Warden Office">
+            </form>
+            <br>
+            <form action="/main-gate" method="post">
+                <input type="submit" value="Main Gate">
+            </form>
+            <br>
+            <form action="/in-out" method="post">
+                <input type="submit" value="In/Out">
+            </form>
+        </div>
+        <div class="section" id="girlsSection">
+            <h1>Girls</h1>
+            <form action="/caretaker-girls" method="post">
+                <input type="submit" value="Warden Office">
+            </form>
+            <br>
+            <form action="/main-gate-girls" method="post">
+                <input type="submit" value="Main Gate">
+            </form>
+            <br>
+            <form action="/in-out-girls" method="post">
+                <input type="submit" value="In/Out">
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        &copy; 2024 Rajiv Gandhi University of Knowledge Technologies. All rights reserved.
+    </div>
+</body>
+</html> -->
+
+
+<!-- above one also fine -->
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        #header {
+            background-color: #a52a2a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        .logo img {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+        }
+        .text {
+            display: inline-block;
+        }
+        input[type="submit"] {
+            background-color: #1ABC9C;
+            color: #ffffff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #159a7b;
+        }
+        #footer {
+            background-color: #a52a2a;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #content {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .section {
+            background-color: #fff;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 45%;
+        }
+        .section h1 {
+            color: #008cba;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            #content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .section {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="text">
+            <h2>Rajiv Gandhi University of Knowledge Technologies-Srikakulam</h2>
+            <h2>Facial Recognition Outpass Management System</h2>
+        </div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+    </div>
+    <div id="content">
+        <div class="section" id="boysSection">
+            <h1>Boys</h1>
+            <form action="/caretaker-boys" method="post">
+                <input type="submit" value="Warden Office">
+            </form>
+            <form action="/in-out" method="post">
+                <input type="submit" value="In/Out">
+            </form>
+        </div>
+        girls section
+        <div class="section" id="girlsSection">
+            <h1>Girls</h1>
+            <form action="/caretaker" method="post">
+                <input type="submit" value="Warden Office">
+            </form>
+            <form action="/main-gate" method="post">
+                <input type="submit" value="Main Gate">
+            </form>
+            <form action="/in-out" method="post">
+                <input type="submit" value="In/Out">
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        &copy; 2024 Rajiv Gandhi University of Knowledge Technologies. All rights reserved.
+    </div>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        #header {
+            background-color: #a52a2a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        .logo img {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+        }
+        .text {
+            display: inline-block;
+        }
+        .logout {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+        .logout form {
+            display: inline-block;
+        }
+        .logout input[type="submit"] {
+            background-color: #d9534f;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .logout input[type="submit"]:hover {
+            background-color: #c9302c;
+        }
+        input[type="submit"] {
+            background-color: #1ABC9C;
+            color: #ffffff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #159a7b;
+        }
+        #footer {
+            background-color: #a52a2a;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #content {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .section {
+            background-color: #fff;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 45%;
+        }
+        .section h1 {
+            color: #008cba;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            #content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .section {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="text">
+            <h2>Rajiv Gandhi University of Knowledge Technologies-Srikakulam</h2>
+            <h2>Facial Recognition Outpass Management System</h2>
+        </div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+        <div class="logout">
+            <form action="/logout" method="post">
+                <input type="submit" value="Logout">
+            </form>
+        </div>
+    </div>
+    <div id="content">
+        <div class="section" id="boysSection">
+            <h1>Boys</h1>
+            <form action="/caretaker-boys" method="post">
+                <input type="submit" value="Warden Office">
+            </form>
+            <form action="/in-out" method="post">
+                <input type="submit" value="In/Out">
+            </form>
+        </div>
+        <div class="section" id="girlsSection">
+            <h1>Girls</h1>
+            <form action="/caretaker" method="post">
+                <input type="submit" value="Warden Office">
+            </form>
+            <form action="/main-gate" method="post">
+                <input type="submit" value="Main Gate">
+            </form>
+            <form action="/in-out" method="post">
+                <input type="submit" value="In/Out">
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        &copy; 2024 Rajiv Gandhi University of Knowledge Technologies. All rights reserved.
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        #header {
+            background-color: #a52a2a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        .logo img {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+        }
+        .text {
+            display: inline-block;
+        }
+        .logout {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+        .logout a {
+            background-color: #d9534f;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .logout a:hover {
+            background-color: #c9302c;
+        }
+        input[type="submit"] {
+            background-color: #1ABC9C;
+            color: #ffffff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #159a7b;
+        }
+        #footer {
+            background-color: #a52a2a;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #content {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .section {
+            background-color: #fff;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 45%;
+        }
+        .section h1 {
+            color: #008cba;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            #content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .section {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="text">
+            <h2>Rajiv Gandhi University of Knowledge Technologies-Srikakulam</h2>
+            <h2>Facial Recognition Outpass Management System</h2>
+        </div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+        <div class="logout">
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+    <div id="content">
+        <div class="section" id="boysSection">
+            <h1>Boys</h1>
+            <form action="/caretaker-boys" method="post">
+                <input type="submit" value="Warden Office">
+            </form>
+            <form action="/in-out" method="post">
+                <input type="submit" value="In/Out">
+            </form>
+        </div>
+        <div class="section" id="girlsSection">
+            <h1>Girls</h1>
+            <form action="/caretaker" method="post">
+                <input type="submit" value="Warden Office">
+            </form>
+            <form action="/main-gate" method="post">
+                <input type="submit" value="Main Gate">
+            </form>
+            <form action="/in-out" method="post">
+                <input type="submit" value="In/Out">
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        &copy; 2024 Rajiv Gandhi University of Knowledge Technologies. All rights reserved.
+    </div>
+</body>
+</html>
+
+
+
+
+

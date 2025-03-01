@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issued Outpasses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #fff; /* Background color */
+            color: #000; /* Text color */
+        }
+
+
+        #header {
+            background-color: #a52a2a;
+            color: #fff;
+            padding:20px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+        .logo img {
+            width: 100px; /* Adjust the width as needed */
+            height: 100px; /* Maintain aspect ratio */ /* Adjust the margin as needed */
+            margin-left: -59%;
+            margin-top: -80px;
+            box-shadow: None;
+            border: None;
+        }
+        .text {
+            display: inline-block;
+            text-align: center;
+        }
+
+        #footer {
+            background-color: #a52a2a;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            bottom: 0;
+            width: 100%;
+            position: fixed;
+            margin-top: 20px;
+        }
+
+        #content {
+            text-align: center;
+            margin: 20px;
+        }
+        #issuedOutpasses {
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            margin-top: 20px;
+            margin-left: 8%;
+            margin-bottom: 10%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #000; /* Border color */
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color:#008cba ; /* Header background color */
+            color: #fff;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternate row background color */
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="text">
+            <h2>Rajiv Gandhi University of Knowledge Technologies-Srikakulam</h2><br>
+            <h2>Facial Recognition Outpass Management System</h2>
+        </div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+    </div>
+
+    <div id="content">
+        <div id="issuedOutpasses">
+            <h1 style="color: #008cba;text-align: center;">Issued Outpasses</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>RGUKT ID</th>
+                        <th>Outpass ID</th> 
+                        <th>Name</th>
+                        <th>Branch</th>
+                        <th>Year</th>
+                        <th>Issued Time</th>
+                        <th>Out Time</th>
+                        <th>Reason</th>
+                        <th>In Time</th>
+                
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for outpass in issued_outpasses %}
+                        {% if not loop.first %} 
+                            <tr>
+                                <td>{{ loop.index - 1 }}</td>
+                                <td>{{ outpass[0] }}</td>
+                                <td>{{outpass[9]}}</td>
+                                <td>{{ outpass[1] }}</td>
+                                <td>{{ outpass[2] }}</td>
+                                <td>{{ outpass[3] }}</td>
+                                <td>{{ outpass[4] }}</td>
+                                <td>{{ outpass[5] }}</td>
+                                <td>{{ outpass[7] }}</td>
+                                <td><center>{{ outpass[8] }}</center></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <a style="display: inline-block; padding: 10px 20px; background-color: #1ABC9C; color: #000; text-decoration: none; font-size: 16px; border-radius: 5px; transition: background-color 0.3s ease;" 
+            href="{{ url_for('download_csv') }}" download="issued_outpasses.csv">Download File</a>
+        </div>
+
+    </div>
+    {% if outpassid %}
+    <audio autoplay style="display: none;">
+        <source src="{{ url_for('static', filename='outpass_notification.mp3') }}" type="audio/mpeg">
+    </audio>
+    {% endif %}
+    <div id="footer">
+        &copy; 2024 Rajiv Gandhi University of Knowledge Technologies. All rights reserved.
+    </div>
+</body>
+</html>
